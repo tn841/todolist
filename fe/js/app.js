@@ -14,7 +14,7 @@
 		});
 		
 		/******Event delegation 방식**********/
-		//체크버튼에 대한 클릭이벤트 핸들러 할당
+		//체크 toggle버튼에 대한 클릭이벤트 핸들러 할당
 		$('.todo-list').on('click','.toggle', function(e){
 			var $li = $(e.target).parent().parent();
 			var isCompleted = 0;	//0미완, 1완료
@@ -26,10 +26,7 @@
 			}
 			var id =  $li.attr("id").replace("list","");
 			
-			if($li.text() == ''){
-				alert("엔터를 눌러 수정을 완료하세요.");
-				return;
-			}
+
 			$.ajax({
 				url:"api/todos/"+id,
 				method:"PUT",
