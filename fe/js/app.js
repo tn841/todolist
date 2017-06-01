@@ -90,13 +90,12 @@
 	
 	
 	
-	
+	//사용자 정의 함수 구현
 	function insertTodo(){
 		var content = $('.new-todo').val();
 		if(content.trim() == ''){
 			alert("내용을 입력하세요.");
 		}else{
-			//alert(content);
 			$.ajax({
 				url:"api/todos",
 				method:"POST",
@@ -129,7 +128,7 @@
 			success:function(data){
 				var html = "";
 				var cnt = 0;
-				for(var i=0; i<data.length; i++){
+				for(var i=0; i<data.length; i++){	//할일 리스트 생성 
 						html += '<li '+(data[i].completed == 0 ? "" : 'class="completed"')+' id="list'+data[i].id+'">';
 						html += '<div class="view">';
 						html += '<input class="toggle" type="checkbox" '+(data[i].completed == 0 ? "" : 'checked')+'>';
