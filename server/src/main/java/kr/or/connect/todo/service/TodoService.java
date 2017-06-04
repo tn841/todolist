@@ -13,7 +13,7 @@ import kr.or.connect.todo.persistence.TodoDao;
 public class TodoService {
 	private TodoDao dao;
 	
-	@Autowired
+	@Autowired	//생성자 방식으로 DI
 	public TodoService(TodoDao dao) {
 		this.dao = dao;
 	}
